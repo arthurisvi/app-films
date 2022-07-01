@@ -3,15 +3,19 @@ import { Container, MenuButton, Title } from "./styles";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-function Header() {
+interface HeaderProps{
+  title: string;
+}
+
+function Header(props: HeaderProps) {
   const navigation = useNavigation();
+
   return (
     <Container>
-      {/* <MenuButton onPress={() => navigation.openDrawer()}> */}
-      <MenuButton onPress={() => alert("teste")}>
+      <MenuButton onPress={() => navigation.openDrawer()}>
         <Feather name="menu" size={36} color="#FFF" />
       </MenuButton>
-      <Title>React Prime</Title>
+      <Title>{props.title}</Title>
     </Container>
   );
 }
